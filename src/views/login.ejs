@@ -9,11 +9,13 @@
         <h1 class="text-center my-3">Criar conta ou Entrar</h1>
         <p class="text-center lead">Faça login ou crie sua conta</p>
 
-        <div class="row">
+        <%- include('includes/msg') %>
+
+        <div class="row mt-4">
 
           <div class="col-lg">
-            <h4>Faça seu cadastro</h4>
-            <p>Se você ainda não tem conta, crie abaixo</p>
+            <h4 class="text-center">Faça seu cadastro</h4>
+            <p class="text-center fs-6">Se você ainda não tem conta, crie abaixo</p>
 
             <form action="/login/register" method="POST">
               <input type="hidden" name="_csrf" value=<%= csrfToken %>>
@@ -26,8 +28,10 @@
                 <label>Senha</label>
                 <input type="password" class="form-control mt-2" name="password">
               </div>
-              
-              <button type="submit" class="btn btn-outline-success mt-2">Criar conta</button>
+
+              <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="submit" class="btn btn-outline-danger mt-2">Criar conta</button>
+              </div>
             </form>
 
 
@@ -48,7 +52,9 @@
                 <input type="password" class="form-control mt-2" name="password">
               </div>
               
-              <button type="submit" class="btn btn-outline-success mt-2">Entrar</button>
+              <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="submit" class="btn btn-outline-danger mt-2">Entrar</button>
+              </div>
             </form>
           </div>
         </div>
