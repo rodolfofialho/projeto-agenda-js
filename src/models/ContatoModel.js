@@ -37,7 +37,7 @@ Contato.prototype.valida = function() {
     if(this.body.email && !validator.isEmail(this.body.email)) this.erros.push('E-mail inválido');
     if(!this.body.nome) this.erros.push('Nome é um campo obrigatório');
     if(!this.body.email &&  !this.body.telefone) {
-        this.erros.push('Pelo menos um contato precisa ser enviado email ou telefone');
+        this.erros.push('Pelo menos um contato precisa ser enviado: email ou telefone');
     } 
 };
 
@@ -57,6 +57,12 @@ Contato.prototype.cleanUp = function() {
     };
 }
 
+Contato.prototype.edit = async function(id) {
+    if(typeof id !== 'string') return;
+    this.valida();
+    if(this.erros.length > 0) return;
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true} );
+};
 
 
 module.exports = Contato;

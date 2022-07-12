@@ -54,7 +54,7 @@ class Login {
     }
 
     valida() {
-        //validação || email precisa ser valido || passwordsss
+        //validação || email precisa ser valido || passwords precisa ter entre 5 e 50 caracterer
         this.cleanUp();
 
         if(!validator.isEmail(this.body.email)) this.erros.push('E-mail inválido');
